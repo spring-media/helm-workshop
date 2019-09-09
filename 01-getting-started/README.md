@@ -14,50 +14,6 @@ On Mac, the easiest way to install Helm is to use Homebrew:
 $ brew install kubernetes-helm
 ```
 
-On Ubuntu:
-
-```console
-$ sudo snap install helm --classic
-```
-
-And on Windows:
-
-```console
-$ choco install kubernetes-helm
-```
-
-> More installation methods documented in [installing helm](https://docs.helm.sh/using_helm/#installing-helm)
-
-## Initialize Helm and Install Tiller
-
-Once you have Helm ready, you can initialize the local environment and install Tiller into your Kubernetes cluster in one step.
-
-> If your cluster has Role-Based Access Control (RAC) enabled, you may want to [configure a service account and rules](https://docs.helm.sh/using_helm/#role-based-access-control) before proceeding.
-
-```console
-$ helm init
-```
-
-Helm will use whatever Kubernetes cluster your context is pointing to. Use `kubectl` to learn about your contexts:
-
-```console
-$ kubectl config current-context
-docker-for-desktop
-```
-
-You can verify your setup by running the version command.
-
-```console
-$ helm version
-Client: &version.Version{SemVer:"v2.12.0", GitCommit:"d325d2a9c179b33af1a024cdb5a4472b6288016a", GitTreeState:"clean"}
-Server: &version.Version{SemVer:"v2.12.0", GitCommit:"d325d2a9c179b33af1a024cdb5a4472b6288016a", GitTreeState:"clean"}
-```
-
-Inspect the deployment if you get an error.
-
-```console
-$ kubectl -n kube-system describe deployment tiller-deploy
-```
 
 ## Using Helm
 
